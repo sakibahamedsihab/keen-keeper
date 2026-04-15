@@ -1,28 +1,26 @@
-import { Plus } from "lucide-react";
+import React from "react";
+import Hero from "../components/Hero";
+import { useLoaderData } from "react-router-dom";
 
-export default function Home() {
+import FriendCount from "../components/FriendCount";
+import FriendCard from "../components/FriendCard";
+const Home = () => {
+  const friends = useLoaderData();
+  console.log(friends);
   return (
-    <main>
-      {/* top section */}
-      <div className="flex flex-col items-center gap-8">
-        <h1 className="text-5xl font-bold text-[#1F2937]">
-          Friends to keep close in your life
-        </h1>
-        <p className="text-[#64748B] text-center">
-          Your personal shelf of meaningful connections. Browse, tend, and
-          nurture the <br /> relationships that matter most.
-        </p>
-        <span>
-          <button className="btn">
-            <Plus /> Add a Friend
-          </button>
-        </span>
-      </div>
-
-      {/* middle section */}
-      <div></div>
-
-      {/* Card */}
+    <main className="bg-[#F8FAFC]">
+      <section className="max-w-285 mx-auto">
+        <Hero />
+        <FriendCount />
+        <h1 className="text-2xl font-semibold">Your Friends</h1>
+        <div className="grid grid-cols-4 gap-5 py-10">
+          {friends.map((friend) => (
+            <FriendCard key={friend.id} friend={friend} />
+          ))}
+        </div>
+      </section>
     </main>
   );
-}
+};
+
+export default Home;

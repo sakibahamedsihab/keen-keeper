@@ -3,8 +3,8 @@ import { NavLink } from "react-router-dom";
 
 export default function Navbar() {
   return (
-    <main className="shadow-sm py-4">
-      <div className="max-w-10/11 mx-auto flex justify-between items-center">
+    <main className="shadow-sm py-4 bg-white z-10">
+      <div className="max-w-300 mx-auto flex justify-between items-center">
         <div>
           <h1 className="font-bold text-2xl">
             Keen<span className="text-[#244D3F]">Keeper</span>

@@ -1,7 +1,11 @@
-export default function Timeline() {
+import React from "react";
+
+const Timeline = () => {
   return (
     <div>
-      <h1>Timeline</h1>
+      <h1>Timeline Page</h1>
     </div>
   );
-}
+};
+
+export default Timeline;
