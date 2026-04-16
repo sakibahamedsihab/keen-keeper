@@ -7,7 +7,7 @@
     "days_since_contact": 18,
     "status": "overdue",
     "tags": ["college", "close friend"],
-    "bio": "Met during freshman orientation. We used to pull all-nighters before exams and grab biryani at 2am. He moved to Bangalore for a software job but we still talk whenever we can.",
+    "bio": "College buddy, now in Bangalore.",
     "goal": 14,
     "next_due_date": "2025-07-10"
   },
@@ -19,7 +19,7 @@
     "days_since_contact": 6,
     "status": "on-track",
     "tags": ["work", "mentor"],
-    "bio": "My first team lead at my internship. She taught me more about professional communication than any course ever did. We grab coffee every few weeks when she's in town.",
+    "bio": "First team lead, still my mentor.",
     "goal": 14,
     "next_due_date": "2025-07-22"
   },
@@ -31,7 +31,7 @@
     "days_since_contact": 27,
     "status": "overdue",
     "tags": ["childhood", "hometown"],
-    "bio": "We grew up on the same street and played cricket every evening until we were 16. Life took us different ways but every time we reconnect it feels like no time passed.",
+    "bio": "Grew up on the same street.",
     "goal": 21,
     "next_due_date": "2025-07-05"
   },
@@ -43,7 +43,7 @@
     "days_since_contact": 11,
     "status": "almost due",
     "tags": ["college", "study group"],
-    "bio": "We were in the same machine learning study group in final year. She's now doing a PhD in Toronto. We do monthly video calls to keep each other accountable on personal goals.",
+    "bio": "ML study group, now a PhD.",
     "goal": 14,
     "next_due_date": "2025-07-16"
   },
@@ -55,7 +55,7 @@
     "days_since_contact": 3,
     "status": "on-track",
     "tags": ["work", "close friend"],
-    "bio": "We bonded over a shared frustration during a hackathon that went sideways. Now we're each other's first call when something exciting or terrible happens at work.",
+    "bio": "Bonded at a chaotic hackathon.",
     "goal": 7,
     "next_due_date": "2025-07-20"
   },
@@ -67,7 +67,7 @@
     "days_since_contact": 45,
     "status": "overdue",
     "tags": ["family friend", "long distance"],
-    "bio": "Our families have been close since before I was born. She's been living in Dubai for five years now. I always mean to reach out more but time slips away faster than I expect.",
+    "bio": "Family friend, now lives in Dubai.",
     "goal": 30,
     "next_due_date": "2025-06-28"
   },
@@ -79,7 +79,7 @@
     "days_since_contact": 8,
     "status": "on-track",
     "tags": ["college", "roommate"],
-    "bio": "We shared a flat for two years and survived on instant noodles and deadlines together. He's teaching at a university now and somehow still finds time to check in every week.",
+    "bio": "Shared a flat for two years.",
     "goal": 14,
     "next_due_date": "2025-07-19"
   },
@@ -91,7 +91,7 @@
     "days_since_contact": 13,
     "status": "almost due",
     "tags": ["online", "developer community"],
-    "bio": "We met in a React developers Discord server and started a friendly competition to build projects. She's a freelance developer in Mexico City and one of the most driven people I know.",
+    "bio": "Met in a React Discord server.",
     "goal": 14,
     "next_due_date": "2025-07-17"
   },
@@ -103,7 +103,7 @@
     "days_since_contact": 20,
     "status": "overdue",
     "tags": ["work", "ex-colleague"],
-    "bio": "We worked at the same startup for a year before it folded. He's the person who convinced me that failure is just an expensive lesson. Currently building his own product in Accra.",
+    "bio": "Ex-colleague, now building in Accra.",
     "goal": 14,
     "next_due_date": "2025-07-08"
   },
@@ -115,7 +115,7 @@
     "days_since_contact": 5,
     "status": "on-track",
     "tags": [],
-    "bio": "We met at a design workshop three years ago and immediately clicked over our obsession with good UX. She's a product designer in Singapore and our late-night voice chats are a highlight of my week.",
+    "bio": "UX obsessed designer in Singapore.",
     "goal": 10,
     "next_due_date": "2025-07-22"
   }

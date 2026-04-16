@@ -2,15 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function FriendCard({ friend }) {
-  // 1. Helper object to map status strings to specific Tailwind background colors
+
   const statusStyles = {
     overdue: "bg-red-500 text-white",
     "almost due": "bg-yellow-500 text-white",
-    "on-track": "bg-[#244D3F] text-white", // Using your KeenKeeper theme dark green
+    "on-track": "bg-[#244D3F] text-white", 
   };
 
-  // 2. Helper function to format the status text properly for display
-  // e.g., turns "almost due" into "Almost Due", and "on-track" into "On-Track"
+
   const formatStatus = (status) => {
     if (status === "on-track") return "On-Track";
     if (status === "almost due") return "Almost Due";
@@ -18,13 +17,13 @@ export default function FriendCard({ friend }) {
     return status;
   };
 
-  // Grab the correct style from our object, fallback to gray if something goes wrong
-  const currentStyle =
-    statusStyles[friend.status] || "bg-gray-200 text-gray-700";
+
+  const currentStyle = (status) =>
+    statusStyles[status] || "bg-gray-200 text-gray-700";
 
   return (
     <Link to={`/details/${friend.id}`}>
-      <div className="bg-white rounded-sm shadow-sm border border-gray-100 p-6 flex flex-col items-center text-center transition-shadow hover:shadow-md">
+      <div className="bg-white rounded-sm shadow-sm border border-gray-100 p-6 flex flex-col items-center text-center transition-shadow hover:shadow-md h-full">
         {/* Avatar */}
         <img
           src={friend.picture}
@@ -54,7 +53,7 @@ export default function FriendCard({ friend }) {
         </section>
         {/* Status Badge */}
         <span
-          className={`px-4 py-1 text-xs font-bold rounded-full ${currentStyle}`}
+          className={`px-4 py-1 text-xs font-bold rounded-full ${currentStyle(friend.status)}`}
         >
           {formatStatus(friend.status)}
         </span>
