@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 
 import { formatDate } from "../../public/helper";
+import HistoryItem from "./HistoryItem";
 
 function RightSide() {
   const friend = useLoaderData();
@@ -25,6 +26,33 @@ function RightSide() {
     next_due_date,
     email,
   } = friend;
+
+  const recentInteractions = [
+    {
+      id: 1,
+      type: "Text",
+      note: "Asked for career advice",
+      date: "Jan 28, 2026",
+    },
+    {
+      id: 2,
+      type: "Meetup",
+      note: "Industry conference meetup",
+      date: "Jan 28, 2026",
+    },
+    {
+      id: 3,
+      type: "Video",
+      note: "Asked for career advice",
+      date: "Jan 28, 2026",
+    },
+    {
+      id: 4,
+      type: "Text",
+      note: "Asked for career advice",
+      date: "Jan 28, 2026",
+    },
+  ];
 
   return (
     <main className="flex flex-col gap-3">
@@ -68,23 +96,38 @@ function RightSide() {
         </h1>
         <section>
           <div className=" grid grid-cols-3 gap-5">
-            <div className="flex flex-col gap-2 items-center justify-center px-8 py-4 bg-[#F8FAFC] shadow-sm rounded-sm">
+            <div className="cursor-pointer flex flex-col gap-2 items-center justify-center px-8 py-4 bg-[#F8FAFC] shadow-sm rounded-sm">
               <span className="text-[18px] flex flex-col items-center gap-2">
                 <Phone /> Call
               </span>
             </div>
-            <div className="flex flex-col gap-2 items-center justify-center px-8 py-4 bg-[#F8FAFC] shadow-sm rounded-sm">
+            <div className="cursor-pointer flex flex-col gap-2 items-center justify-center px-8 py-4 bg-[#F8FAFC] shadow-sm rounded-sm">
               <span className="text-[18px] flex flex-col items-center gap-2">
                 <MessageSquare /> Text
               </span>
             </div>
-            <div className="flex flex-col gap-2 items-center justify-center px-8 py-4 bg-[#F8FAFC] shadow-sm rounded-sm">
+            <div className="cursor-pointer flex flex-col gap-2 items-center justify-center px-8 py-4 bg-[#F8FAFC] shadow-sm rounded-sm">
               <span className="text-[18px] flex flex-col items-center gap-2">
                 <Video /> Video
               </span>
             </div>
           </div>
         </section>
+      </section>
+
+      {/* Call history section */}
+      <section className="flex flex-col p-5 bg-white rounded-md shadow-md">
+        <div className="flex justify-between items-center">
+          <h1 className="text-[#244D3F] text-[20px] font-semibold">
+            Recent Interactions
+          </h1>
+          <button className="btn btn-soft flex gap-2 bg-[#F8FAFC]">
+            <History /> Full History
+          </button>
+        </div>
+        {recentInteractions.map((interaction) => (
+          <HistoryItem key={interaction.id} interaction={interaction} />
+        ))}
       </section>
     </main>
   );
