@@ -22,8 +22,8 @@ function FriendDetail() {
     return <NotFound />;
   }
   return (
-    <div className="max-w-285 mx-auto py-10">
-      <main className="grid grid-cols-[1fr_2fr] gap-6">
+    <div className="max-w-285 mx-auto py-6 sm:py-10 px-4 sm:px-0">
+      <main className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-4 sm:gap-6">
         <LeftSide />
         <RightSide />
       </main>

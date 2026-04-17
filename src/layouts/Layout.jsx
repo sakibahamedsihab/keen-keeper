@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import { Outlet, useNavigation } from "react-router-dom";
 import Footer from "../components/Footer";
+import { Toaster } from "react-hot-toast";
 
 import { Loader2 } from "lucide-react";
 
@@ -11,6 +12,7 @@ const Layout = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <Toaster position="top-center" reverseOrder={false} />
       <Navbar />
       <main className="flex flex-col grow bg-[#F8FAFC]">
         {isLoading ? (

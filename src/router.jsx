@@ -7,7 +7,7 @@ import FriendDetail from "./pages/FriendDetail";
 import NotFound from "./pages/NotFound";
 
 const HomeLoader = async () => {
-  await new Promise((resolve) => setTimeout(resolve, 1500));
+  await new Promise((resolve) => setTimeout(resolve, 1000));
 
   const res = await fetch("/friend.json");
   return res.json();

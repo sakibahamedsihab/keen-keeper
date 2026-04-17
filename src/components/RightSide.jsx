@@ -25,10 +25,13 @@ function RightSide() {
       id: Date.now(),
       name: friend.name,
       type: interactionType,
-      date: new Date().toLocaleDateString("en-US", {
+      date: new Date().toLocaleString("en-US", {
         month: "short",
         day: "numeric",
         year: "numeric",
+        hour: "numeric",
+        minute: "2-digit",
+        hour12: true,
       }),
     };
 
@@ -65,69 +68,78 @@ function RightSide() {
   return (
     <main className="flex flex-col gap-3">
       <section>
-        <div className=" grid grid-cols-3 gap-5">
-          <div className="flex flex-col gap-2 items-center justify-center p-8 bg-white shadow-sm rounded-sm">
-            <span className="text-2xl text-[#244D3F] font-bold">
+        <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
+          <div className="flex flex-col gap-2 items-center justify-center p-4 sm:p-8 bg-white shadow-sm rounded-sm">
+            <span className="text-xl sm:text-2xl text-[#244D3F] font-bold">
               {friend.days_since_contact}
             </span>
-            <h1 className="text-[18px]">Days Since Contact</h1>
+            <h1 className="text-sm sm:text-[18px] text-center">
+              Days Since Contact
+            </h1>
           </div>
-          <div className="flex flex-col gap-2 items-center justify-center p-8 bg-white shadow-sm rounded-sm">
-            <span className="text-2xl text-[#244D3F] font-bold">
+          <div className="flex flex-col gap-2 items-center justify-center p-4 sm:p-8 bg-white shadow-sm rounded-sm">
+            <span className="text-xl sm:text-2xl text-[#244D3F] font-bold">
               {friend.goal}
             </span>
-            <h1 className="text-[18px]">Goal (days)</h1>
+            <h1 className="text-sm sm:text-[18px] text-center">Goal (days)</h1>
           </div>
-          <div className="flex flex-col gap-2 items-center justify-center p-8 bg-white shadow-sm rounded-sm">
-            <span className="text-2xl text-[#244D3F] font-bold">
+          <div className="flex flex-col gap-2 items-center justify-center p-4 sm:p-8 bg-white shadow-sm rounded-sm">
+            <span className="text-xl sm:text-2xl text-[#244D3F] font-bold">
               {formatDate(friend.next_due_date)}
             </span>
-            <h1 className="text-[18px]">Need Attention</h1>
+            <h1 className="text-sm sm:text-[18px] text-center">
+              Need Attention
+            </h1>
           </div>
         </div>
       </section>
 
-      <section className="p-6 bg-white shadow-sm rounded-sm">
-        <div className="flex justify-between gap-2">
-          <h1 className="text-[20px] text-[#244D3F] font-medium">
+      <section className="p-4 sm:p-6 bg-white shadow-sm rounded-sm">
+        <div className="flex flex-col sm:flex-row gap-2 sm:justify-between sm:items-center mb-2">
+          <h1 className="text-base sm:text-[20px] text-[#244D3F] font-medium">
             Relationship Goal
           </h1>
-          <button className="btn btn-soft">Edit</button>
+          <button className="btn btn-soft btn-sm sm:btn-md">Edit</button>
         </div>
-        <p>
+        <p className="text-sm sm:text-base">
           Connect every{" "}
-          <span className="font-semibold text-lg">{friend.goal} days</span>
+          <span className="font-semibold text-base sm:text-lg">
+            {friend.goal} days
+          </span>
         </p>
       </section>
 
-      <section className="p-6 bg-white shadow-sm rounded-sm">
-        <h1 className="mb-2 text-[#244D3F] text-[20px] font-medium">
+      <section className="p-4 sm:p-6 bg-white shadow-sm rounded-sm">
+        <h1 className="mb-3 sm:mb-4 text-[#244D3F] text-base sm:text-[20px] font-medium">
           Quick Check-In
         </h1>
         <section>
-          <div className=" grid grid-cols-3 gap-5">
+          <div className="grid grid-cols-3 gap-2 sm:gap-5">
             <div
               onClick={() => onInteractiveClick("Call")}
-              className="cursor-pointer flex flex-col gap-2 items-center justify-center px-8 py-4 bg-[#F8FAFC] shadow-sm rounded-sm"
+              className="cursor-pointer flex flex-col gap-1 sm:gap-2 items-center justify-center px-3 sm:px-8 py-3 sm:py-4 bg-[#F8FAFC] shadow-sm rounded-sm hover:shadow-md transition-shadow"
             >
-              <span className="text-[18px] flex flex-col items-center gap-2">
-                <Phone /> Call
+              <span className="text-xs sm:text-[18px] flex flex-col items-center gap-1 sm:gap-2">
+                <Phone className="w-4 h-4 sm:w-6 sm:h-6" />{" "}
+                <span className="hidden sm:inline">Call</span>
               </span>
             </div>
             <div
               onClick={() => onInteractiveClick("Text")}
-              className="cursor-pointer flex flex-col gap-2 items-center justify-center px-8 py-4 bg-[#F8FAFC] shadow-sm rounded-sm"
+              className="cursor-pointer flex flex-col gap-1 sm:gap-2 items-center justify-center px-3 sm:px-8 py-3 sm:py-4 bg-[#F8FAFC] shadow-sm rounded-sm hover:shadow-md transition-shadow"
             >
-              <span className="text-[18px] flex flex-col items-center gap-2">
-                <MessageSquare /> Text
+              <span className="text-xs sm:text-[18px] flex flex-col items-center gap-1 sm:gap-2">
+                <MessageSquare className="w-4 h-4 sm:w-6 sm:h-6" />{" "}
+                <span className="hidden sm:inline">Text</span>
               </span>
             </div>
             <div
               onClick={() => onInteractiveClick("Video")}
-              className="cursor-pointer flex flex-col gap-2 items-center justify-center px-8 py-4 bg-[#F8FAFC] shadow-sm rounded-sm"
+              className="cursor-pointer flex flex-col gap-1 sm:gap-2 items-center justify-center px-3 sm:px-8 py-3 sm:py-4 bg-[#F8FAFC] shadow-sm rounded-sm hover:shadow-md transition-shadow"
             >
-              <span className="text-[18px] flex flex-col items-center gap-2">
-                <Video /> Video
+              <span className="text-xs sm:text-[18px] flex flex-col items-center gap-1 sm:gap-2">
+                <Video className="w-4 h-4 sm:w-6 sm:h-6" />{" "}
+                <span className="hidden sm:inline">Video</span>
               </span>
             </div>
           </div>
@@ -135,13 +147,13 @@ function RightSide() {
       </section>
 
       {/* Call history section */}
-      <section className="flex flex-col p-5 bg-white rounded-md shadow-md">
-        <div className="flex justify-between items-center">
-          <h1 className="text-[#244D3F] text-[20px] font-semibold">
+      <section className="flex flex-col p-4 sm:p-5 bg-white rounded-md shadow-md">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 mb-3">
+          <h1 className="text-[#244D3F] text-base sm:text-[20px] font-semibold">
             Recent Interactions
           </h1>
-          <button className="btn btn-soft flex gap-2 bg-[#F8FAFC]">
-            <History /> Full History
+          <button className="btn btn-soft btn-sm sm:btn-md flex gap-2 bg-[#F8FAFC] w-full sm:w-auto justify-center">
+            <History className="w-4 h-4 sm:w-5 sm:h-5" /> Full History
           </button>
         </div>
         {recentInteractions.map((interaction) => (

@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { getFromLocalStorage, saveToLocalStorage } from "../utils/localStorage";
+import { toast } from "react-hot-toast";
 
 export const TimelineContext = createContext();
 
@@ -14,9 +15,10 @@ function TimelineContextProvider({ children }) {
     );
 
     if (isExist) {
-      alert(`${interaction.name} is already Present`);
+      toast.error(`${interaction.name} is already Present`);
     } else {
       setInteraction([interaction, ...interactions]);
+      toast.success(`${interaction.type} added successfully!`);
     }
   };
 

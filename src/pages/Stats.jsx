@@ -29,12 +29,12 @@ export default function Stats() {
   const COLORS = ["#244D3F", "#7E35E1", "#37A163"];
 
   return (
-    <main className="max-w-285 w-full mx-auto px-4 py-10 flex flex-col grow">
-      <h1 className="text-5xl font-bold mb-10 text-[#1F2937]">
+    <main className="max-w-285 w-full mx-auto px-4 py-6 sm:py-10 flex flex-col grow">
+      <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 sm:mb-10 text-[#1F2937]">
         Friendship Analytics
       </h1>
 
-      <div className="bg-white border border-gray-200 rounded-xl p-8 shadow-sm h-[500px] flex flex-col items-center justify-center">
+      <div className="bg-white border border-gray-200 rounded-xl p-4 sm:p-8 shadow-sm h-[300px] sm:h-[400px] lg:h-[500px] flex flex-col items-center justify-center">
         {chartData.length > 0 ? (
           <ResponsiveContainer width="100%" height="100%">
             <PieChart>
@@ -57,7 +57,12 @@ export default function Stats() {
                 ))}
               </Pie>
               <Tooltip />
-              <Legend verticalAlign="bottom" iconType="circle" wrapperStyle={{paddingTop: 20}} height={36} />
+              <Legend
+                verticalAlign="bottom"
+                iconType="circle"
+                wrapperStyle={{ paddingTop: 20 }}
+                height={36}
+              />
             </PieChart>
           </ResponsiveContainer>
         ) : (
