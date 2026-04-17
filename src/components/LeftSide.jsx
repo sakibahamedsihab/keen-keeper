@@ -13,17 +13,7 @@ import {
 
 function LeftSide() {
   const friend = useLoaderData();
-  const {
-    name,
-    picture,
-    status,
-    tags = [],
-    bio,
-    days_since_contact,
-    goal,
-    next_due_date,
-    email,
-  } = friend;
+  const { name, picture, status, tags = [], bio } = friend;
 
   console.log(friend);
   return (

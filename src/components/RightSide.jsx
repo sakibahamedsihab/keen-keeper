@@ -10,22 +10,30 @@ import {
   History,
 } from "lucide-react";
 
+import { useContext } from "react";
+import { TimelineContext } from "../Context/TimelineContext";
+
 import { formatDate } from "../../public/helper";
 import HistoryItem from "./HistoryItem";
 
 function RightSide() {
   const friend = useLoaderData();
-  const {
-    name,
-    picture,
-    status,
-    tags = [],
-    bio,
-    days_since_contact,
-    goal,
-    next_due_date,
-    email,
-  } = friend;
+  const { handleSaveTolocalStorage } = useContext(TimelineContext);
+
+  const onInteractiveClick = (interactionType) => {
+    const newInteraction = {
+      id: Date.now(),
+      name: friend.name,
+      type: interactionType,
+      date: new Date().toLocaleDateString("en-US", {
+        month: "short",
+        day: "numeric",
+        year: "numeric",
+      }),
+    };
+
+    handleSaveTolocalStorage(newInteraction);
+  };
 
   const recentInteractions = [
     {
@@ -65,7 +73,9 @@ function RightSide() {
             <h1 className="text-[18px]">Days Since Contact</h1>
           </div>
           <div className="flex flex-col gap-2 items-center justify-center p-8 bg-white shadow-sm rounded-sm">
-            <span className="text-2xl text-[#244D3F] font-bold">{goal}</span>
+            <span className="text-2xl text-[#244D3F] font-bold">
+              {friend.goal}
+            </span>
             <h1 className="text-[18px]">Goal (days)</h1>
           </div>
           <div className="flex flex-col gap-2 items-center justify-center p-8 bg-white shadow-sm rounded-sm">
@@ -86,7 +96,7 @@ function RightSide() {
         </div>
         <p>
           Connect every{" "}
-          <span className="font-semibold text-lg">{goal} days</span>
+          <span className="font-semibold text-lg">{friend.goal} days</span>
         </p>
       </section>
 
@@ -96,17 +106,26 @@ function RightSide() {
         </h1>
         <section>
           <div className=" grid grid-cols-3 gap-5">
-            <div className="cursor-pointer flex flex-col gap-2 items-center justify-center px-8 py-4 bg-[#F8FAFC] shadow-sm rounded-sm">
+            <div
+              onClick={() => onInteractiveClick("Call")}
+              className="cursor-pointer flex flex-col gap-2 items-center justify-center px-8 py-4 bg-[#F8FAFC] shadow-sm rounded-sm"
+            >
               <span className="text-[18px] flex flex-col items-center gap-2">
                 <Phone /> Call
               </span>
             </div>
-            <div className="cursor-pointer flex flex-col gap-2 items-center justify-center px-8 py-4 bg-[#F8FAFC] shadow-sm rounded-sm">
+            <div
+              onClick={() => onInteractiveClick("Text")}
+              className="cursor-pointer flex flex-col gap-2 items-center justify-center px-8 py-4 bg-[#F8FAFC] shadow-sm rounded-sm"
+            >
               <span className="text-[18px] flex flex-col items-center gap-2">
                 <MessageSquare /> Text
               </span>
             </div>
-            <div className="cursor-pointer flex flex-col gap-2 items-center justify-center px-8 py-4 bg-[#F8FAFC] shadow-sm rounded-sm">
+            <div
+              onClick={() => onInteractiveClick("Video")}
+              className="cursor-pointer flex flex-col gap-2 items-center justify-center px-8 py-4 bg-[#F8FAFC] shadow-sm rounded-sm"
+            >
               <span className="text-[18px] flex flex-col items-center gap-2">
                 <Video /> Video
               </span>
