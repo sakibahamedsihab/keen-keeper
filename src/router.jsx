@@ -4,6 +4,14 @@ import Home from "./pages/Home";
 import Timeline from "./pages/Timeline";
 import Stats from "./pages/Stats";
 import FriendDetail from "./pages/FriendDetail";
+import NotFound from "./pages/NotFound";
+
+const HomeLoader = async () => {
+  await new Promise((resolve) => setTimeout(resolve, 1500));
+
+  const res = await fetch("/friend.json");
+  return res.json();
+};
 
 const router = createBrowserRouter([
   {
@@ -13,7 +21,7 @@ const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
-        loader: () => fetch("/friend.json"),
+        loader: HomeLoader,
       },
       {
         path: "timeline",
@@ -32,6 +40,10 @@ const router = createBrowserRouter([
 
           return friends.find((friend) => friend.id === Number(params.id));
         },
+      },
+      {
+        path: "*",
+        Component: NotFound,
       },
     ],
   },

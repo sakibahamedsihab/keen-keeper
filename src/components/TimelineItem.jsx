@@ -9,11 +9,19 @@ export default function TimelineItem({ interaction }) {
     Call: Phone,
   };
 
+  const style = {
+    Text: "bg-sky-100",
+    Call: "bg-pink-100",
+    Video: "bg-orange-100",
+  };
+
   const IconComponent = iconMap[interaction.type];
 
   return (
     <div className="bg-white border border-gray-200 rounded-lg p-5 flex items-center gap-5 shadow-sm mb-4">
-      <div className="text-gray-500">
+      <div
+        className={`text-gray-500 p-5 ${style[interaction.type]} rounded-full `}
+      >
         <IconComponent size={28} strokeWidth={1.5} />
       </div>
 

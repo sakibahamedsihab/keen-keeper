@@ -6,6 +6,7 @@ import FriendCount from "../components/FriendCount";
 import FriendCard from "../components/FriendCard";
 const Home = () => {
   const friends = useLoaderData();
+
   console.log(friends);
   return (
     <main className="bg-[#F8FAFC]">

@@ -6,13 +6,15 @@ import TimelineContextProvider from "./Context/TimelineContext";
 
 import router from "./router";
 
+import { Loader2 } from "lucide-react";
+
 createRoot(document.getElementById("root")).render(
   <TimelineContextProvider>
     <RouterProvider
       router={router}
       fallbackElement={
-        <div className="p-10 text-center font-bold text-gray-500">
-          Loading KeenKeeper...
+        <div className="min-h-screen flex items-center justify-center">
+          <Loader2 className="w-12 h-12 text-[#1F2937] animate-spin" />
         </div>
       }
     />
